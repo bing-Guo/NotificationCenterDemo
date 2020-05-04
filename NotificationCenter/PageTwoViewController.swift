@@ -11,8 +11,10 @@ class PageTwoViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(plusOne), name: Notification.Name(rawValue: "ClickMeEvent"), object: nil)
     }
     
-    @objc func plusOne() {
+    @objc func plusOne(notification: NSNotification) {
         count += 1
         countLabel.text = String(count)
+        
+        print(notification.userInfo!["msg"] as Any)
     }
 }
